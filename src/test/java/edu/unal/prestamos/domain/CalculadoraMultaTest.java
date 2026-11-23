@@ -17,4 +17,22 @@ class CalculadoraMultaTest {
 
         assertEquals(0, multa);
     }
+
+    @Test
+    void calcular_devueltoElDiaLimite_noHayMulta() {
+        LocalDate fechaDevolucion = LIMITE;
+
+        int multa = calculadora.calcular(LIMITE, fechaDevolucion, false);
+
+        assertEquals(0, multa);
+    }
+
+    @Test
+    void calcular_unDiaDeRetraso_cobraDosMil() {
+        LocalDate fechaDevolucion = LIMITE.plusDays(1);
+
+        int multa = calculadora.calcular(LIMITE, fechaDevolucion, false);
+
+        assertEquals(2000, multa);
+    }
 }
