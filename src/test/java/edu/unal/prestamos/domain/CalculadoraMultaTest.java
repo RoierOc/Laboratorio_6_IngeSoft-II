@@ -53,4 +53,22 @@ class CalculadoraMultaTest {
 
         assertEquals(50000, multa);
     }
+
+    @Test
+    void calcular_monitorConTresDias_pagaLaMitad() {
+        LocalDate fechaDevolucion = LIMITE.plusDays(3);
+
+        int multa = calculadora.calcular(LIMITE, fechaDevolucion, true);
+
+        assertEquals(3000, multa);
+    }
+
+    @Test
+    void calcular_monitorConCuarentaDias_descuentaDespuesDelTope() {
+        LocalDate fechaDevolucion = LIMITE.plusDays(40);
+
+        int multa = calculadora.calcular(LIMITE, fechaDevolucion, true);
+
+        assertEquals(25000, multa);
+    }
 }
