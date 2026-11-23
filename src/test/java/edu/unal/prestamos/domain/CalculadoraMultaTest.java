@@ -35,4 +35,22 @@ class CalculadoraMultaTest {
 
         assertEquals(2000, multa);
     }
+
+    @Test
+    void calcular_veinticincoDias_alcanzaElTope() {
+        LocalDate fechaDevolucion = LIMITE.plusDays(25);
+
+        int multa = calculadora.calcular(LIMITE, fechaDevolucion, false);
+
+        assertEquals(50000, multa);
+    }
+
+    @Test
+    void calcular_cuarentaDias_aplicaElTope() {
+        LocalDate fechaDevolucion = LIMITE.plusDays(40);
+
+        int multa = calculadora.calcular(LIMITE, fechaDevolucion, false);
+
+        assertEquals(50000, multa);
+    }
 }
