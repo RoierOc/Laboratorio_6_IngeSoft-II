@@ -5,6 +5,7 @@ import java.time.temporal.ChronoUnit;
 
 public final class CalculadoraMulta {
     public int calcular(LocalDate fechaLimite, LocalDate fechaDevolucion, boolean esMonitor) {
-        return (int) Math.max(0, ChronoUnit.DAYS.between(fechaLimite, fechaDevolucion)) * 2000;
+        long dias = Math.max(0, ChronoUnit.DAYS.between(fechaLimite, fechaDevolucion));
+        return (int) Math.min(50000, dias * 2000);
     }
 }
