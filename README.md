@@ -17,5 +17,12 @@ Desde PowerShell, en la raíz del proyecto:
 .\mvnw.cmd clean jacoco:prepare-agent test jacoco:report
 ```
 
+Desde Linux o macOS, en la raíz del proyecto:
+
+```bash
+./mvnw test
+./mvnw clean jacoco:prepare-agent test jacoco:report
+```
+
 El reporte HTML se genera en `target/site/jacoco/index.html`.
 
